@@ -7,6 +7,8 @@ public class Car {
 
     List<Ride> excluded = new ArrayList<>();
 
+    List<Ride> rides = new ArrayList<>();
+
     int currentStep = 0;
 
     public Car(Intersection intersection)
@@ -21,6 +23,8 @@ public class Car {
 
         for (Ride ride : rides)
         {
+            if(excluded.contains(ride)) continue;
+
             double points = ride.getQuality(this);
 
             if(points > maxPoints)
@@ -33,5 +37,10 @@ public class Car {
         excluded.add(maxRide);
 
         return maxRide;
+    }
+
+    public void addRide(Ride ride)
+    {
+        rides.add(ride);
     }
 }
