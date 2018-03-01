@@ -26,12 +26,15 @@ public class Ride {
         if(distance < startT - car.currentStep) return 0;
 
         //add bonus;
+        int bon = 0;
 
         if(distance == startT - car.currentStep)
         {
-
+            bon += bonus;
         }
 
-        return 0;
+        int points = Math.abs(startI.x - endI.x) + Math.abs(startI.y - endI.y);
+
+        return points + bon;
     }
 }
