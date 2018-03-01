@@ -30,7 +30,7 @@ public class Car {
 
             double points = ride.getQuality(this);
 
-            if(points > maxPoints)
+            if(points >= maxPoints)
             {
                 maxPoints = points;
                 maxRide   = ride;

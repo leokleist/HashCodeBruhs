@@ -3,18 +3,21 @@
  * Andre Graubner
  * Lukas Walker
  */
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException{
 
         List<Car> cars = new ArrayList<Car>();
         List<Ride> rides = new ArrayList<Ride>();
 
         // Create a new Scanner object for reading the input
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(new File("d_metropolis.in"));
 
         // Read header
         int R = sc.nextInt();
@@ -54,21 +57,19 @@ class Main {
 
         cars = stableMarriage.allCars;
 
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
-        for(int c = 1; c <= cars.size(); c++) {
-            // print cars in order
-            for(int i = 0; i < cars.size(); i++) {
-                // search for right car
-                if(cars.get(i).id == c) {
-                    // output car
-                    System.out.print(cars.get(i) + " ");
-                    for(int j = 0; j < cars.get(i).rides.size(); j++) {
-                        // output rides of car
-                        System.out.print(cars.get(i).rides.get(j).id);
-                        System.out.println();
-                    }
-                }
+        for(int i = 0; i < cars.size(); i++) {
+            System.out.print(cars.get(i).rides.size() + " ");
+            for(int j = 0; j < cars.get(i).rides.size(); j++) {
+                System.out.print(cars.get(i).rides.get(j).id + " ");
+
             }
+            System.out.println();
         }
     }
 }

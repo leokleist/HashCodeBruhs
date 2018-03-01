@@ -28,34 +28,43 @@ public class StableMarriage {
 
         while(cars.size() > 0)
         {
+            System.out.println("***" + cars.size());
+
+            if (rides.size() == 0 || cars.size() == 0) return;
+
             List<Car> carsWithRide = new ArrayList<>();
 
             while(marriage.size() < cars.size())
             {
-                for(Car car : cars)
-                {
-                    if(carsWithRide.contains(car)) continue;
+                if(rides.size() == 0 || cars.size() == 0) break;
 
-                    Ride ride = car.chooseBest(rides);
+                for(int i = 0; i < cars.size(); i++)
+                {
+                    if(carsWithRide.contains(cars.get(i))) continue;
+
+                    Ride ride = cars.get(i).chooseBest(rides);
 
                     //find ride
                     if(marriage.containsKey(ride))
                     {
-                        if(ride.getQuality(marriage.get(ride)) < ride.getQuality(car))
+                        if(ride.getQuality(marriage.get(ride)) < ride.getQuality(cars.get(i)))
                         {
                             marriage.remove(ride);
-                            carsWithRide.remove(car);
+                            carsWithRide.remove(cars.get(i));
+
+                            marriage.put(ride, cars.get(i));
+                            carsWithRide.add(cars.get(i));
                         }
 
                     }
                     else
                     {
-                        marriage.put(ride, car);
-                        carsWithRide.add(car);
+                        marriage.put(ride, cars.get(i));
+                        carsWithRide.add(cars.get(i));
                     }
 
                     //exclude car if no rides for car
-                    if(car.excluded.size() >= rides.size()) cars.remove(car);
+                    if(cars.get(i).excluded.size() >= rides.size()) cars.remove(cars.get(i));
                 }
             }
 
@@ -63,6 +72,11 @@ public class StableMarriage {
             {
                 marriage.get(ride).addRide(ride);
                 rides.remove(ride);
+            }
+
+            for(Car car : allCars)
+            {
+                car.excluded = new ArrayList<>();
             }
 
             marriage = new HashMap<>();

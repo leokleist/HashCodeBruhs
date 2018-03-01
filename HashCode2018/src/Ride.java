@@ -27,7 +27,7 @@ public class Ride {
     {
         int distance = Math.abs(car.intersection.x - startI.x) + Math.abs(car.intersection.y - startI.y);
 
-        if(distance < startT - car.currentStep) return 0;
+        if(distance > startT - car.currentStep) return 0;
 
         //add bonus;
         int bon = 0;
