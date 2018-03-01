@@ -3,20 +3,22 @@
  * Andre Graubner
  * Lukas Walker
  */
+import java.util.List;
 import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
 
-        List<Car> cars = new List<Car>();
-        List<Ride> rides = new List<Ride>();
+        List<Car> cars = new ArrayList<Car>();
+        List<Ride> rides = new ArrayList<Ride>();
 
         // Create a new Scanner object for reading the input
         Scanner sc = new Scanner(System.in);
 
         // Read header
         int R = sc.nextInt();
-        int C = sc.nextInt();
+
+
         int F = sc.nextInt();
         int N = sc.nextInt();
         int B = sc.nextInt();
