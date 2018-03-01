@@ -45,5 +45,6 @@ public class Car {
     public void addRide(Ride ride)
     {
         rides.add(ride);
+        currentStep = Intersection.distance(intersection, ride.startI) + Intersection.distance(ride.startI, ride.endI);
     }
 }

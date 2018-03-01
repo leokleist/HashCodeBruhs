@@ -45,12 +45,13 @@ public class StableMarriage {
                         {
                             marriage.remove(ride);
                             carsWithRide.remove(car);
-
-
-                            marriage.put(ride, car);
-                            carsWithRide.add(car);
                         }
 
+                    }
+                    else
+                    {
+                        marriage.put(ride, car);
+                        carsWithRide.add(car);
                     }
 
                     //exclude car if no rides for car
@@ -63,6 +64,8 @@ public class StableMarriage {
                 marriage.get(ride).addRide(ride);
                 rides.remove(ride);
             }
+
+            marriage = new HashMap<>();
         }
     }
 

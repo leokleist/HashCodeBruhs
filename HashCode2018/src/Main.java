@@ -18,7 +18,7 @@ class Main {
 
         // Read header
         int R = sc.nextInt();
-
+        int C = sc.nextInt();
 
         int F = sc.nextInt();
         int N = sc.nextInt();
@@ -26,12 +26,13 @@ class Main {
         int T = sc.nextInt();
 
         // Create cars
-        for(int i = 0; i < N; i++) {
+        for(int i = 0; i < F; i++) {
             cars.add(new Car(new Intersection(0, 0), i+1));
         }
 
+        sc.nextLine();
         // Read rides
-        for(int i = 0; i <= N; i++) {
+        for(int i = 0; i < N; i++) {
             Scanner line = new Scanner(sc.nextLine());
 
             int a = line.nextInt();
@@ -47,7 +48,11 @@ class Main {
             rides.add(new Ride(start, end, s, f, B, i));
         }
 
-        runSimulation();
+        //runSimulation();
+
+        StableMarriage stableMarriage = new StableMarriage(cars, rides);
+
+        cars = stableMarriage.allCars;
 
         for(int i = 0; i < cars.size(); i++) {
             System.out.print(cars.get(i) + " ");
@@ -56,10 +61,6 @@ class Main {
                 System.out.println();
             }
         }
-    }
-
-    static void runSimulation() {
-
     }
 }
 
