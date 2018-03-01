@@ -8,11 +8,30 @@ public class Ride {
     public int startT;
     public int endT;
 
-    public Ride(Intersection startI, Intersection endI, int startT, int endT)
+    public int bonus;
+
+    public Ride(Intersection startI, Intersection endI, int startT, int endT, int bonus)
     {
         this.startI = startI;
         this.endI   = endI;
         this.startT = startT;
         this.endT   = endT;
+        this.bonus  = bonus;
+    }
+
+    public double getQuality(Car car)
+    {
+        int distance = Math.abs(car.intersection.x - startI.x) + Math.abs(car.intersection.y - startI.y);
+
+        if(distance < startT - car.currentStep) return 0;
+
+        //add bonus;
+
+        if(distance == startT - car.currentStep)
+        {
+
+        }
+
+        return 0;
     }
 }
