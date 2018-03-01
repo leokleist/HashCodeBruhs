@@ -4,6 +4,7 @@
  * Lukas Walker
  */
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class Main {
@@ -26,7 +27,7 @@ class Main {
 
         // Create cars
         for(int i = 0; i < N; i++) {
-            cars.add(new Car(new Intersection(0, 0)));
+            cars.add(new Car(new Intersection(0, 0), i+1));
         }
 
         // Read rides
@@ -43,8 +44,22 @@ class Main {
             Intersection start = new Intersection(a, b);
             Intersection end = new Intersection(x, y);
 
-            rides.add(new Ride(start, end, s, f));
+            rides.add(new Ride(start, end, s, f, B, i));
         }
+
+        runSimulation();
+
+        for(int i = 0; i < cars.size(); i++) {
+            System.out.print(cars.get(i) + " ");
+            for(int j = 0; j < cars.get(i).rides.size(); j++) {
+                System.out.print(cars.get(i).rides.get(j).id);
+                System.out.println();
+            }
+        }
+    }
+
+    static void runSimulation() {
+
     }
 }
 
