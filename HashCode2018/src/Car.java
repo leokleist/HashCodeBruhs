@@ -3,6 +3,8 @@ import java.util.List;
 
 public class Car {
 
+    int id = 0;
+
     Intersection intersection;
 
     List<Ride> excluded = new ArrayList<>();
@@ -11,9 +13,10 @@ public class Car {
 
     int currentStep = 0;
 
-    public Car(Intersection intersection)
+    public Car(Intersection intersection, int id)
     {
         this.intersection = intersection;
+        this.id = id;
     }
 
     public Ride chooseBest(List<Ride> rides)
