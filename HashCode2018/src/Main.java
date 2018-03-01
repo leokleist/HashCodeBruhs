@@ -54,11 +54,20 @@ class Main {
 
         cars = stableMarriage.allCars;
 
-        for(int i = 0; i < cars.size(); i++) {
-            System.out.print(cars.get(i) + " ");
-            for(int j = 0; j < cars.get(i).rides.size(); j++) {
-                System.out.print(cars.get(i).rides.get(j).id);
-                System.out.println();
+
+        for(int c = 1; c <= cars.size(); c++) {
+            // print cars in order
+            for(int i = 0; i < cars.size(); i++) {
+                // search for right car
+                if(cars.get(i).id == c) {
+                    // output car
+                    System.out.print(cars.get(i) + " ");
+                    for(int j = 0; j < cars.get(i).rides.size(); j++) {
+                        // output rides of car
+                        System.out.print(cars.get(i).rides.get(j).id);
+                        System.out.println();
+                    }
+                }
             }
         }
     }
