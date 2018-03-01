@@ -1,5 +1,8 @@
 public class Ride {
 
+    //id
+    public int id = 0;
+
     //intersections
     public Intersection startI;
     public Intersection endI;
@@ -10,13 +13,14 @@ public class Ride {
 
     public int bonus;
 
-    public Ride(Intersection startI, Intersection endI, int startT, int endT, int bonus)
+    public Ride(Intersection startI, Intersection endI, int startT, int endT, int bonus, int id)
     {
         this.startI = startI;
         this.endI   = endI;
         this.startT = startT;
         this.endT   = endT;
         this.bonus  = bonus;
+        this.id = id;
     }
 
     public double getQuality(Car car)
@@ -26,12 +30,15 @@ public class Ride {
         if(distance < startT - car.currentStep) return 0;
 
         //add bonus;
+        int bon = 0;
 
         if(distance == startT - car.currentStep)
         {
-
+            bon += bonus;
         }
 
-        return 0;
+        int points = Math.abs(startI.x - endI.x) + Math.abs(startI.y - endI.y);
+
+        return points + bon;
     }
 }
