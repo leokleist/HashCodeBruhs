@@ -1,5 +1,7 @@
 /*
  * Leo von Kleist
+ * Andre Graubner
+ * Lukas Walker
  */
 import java.util.Scanner;
 
