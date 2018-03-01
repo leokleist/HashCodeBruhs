@@ -1,5 +1,8 @@
 public class Ride {
 
+    //id
+    public int id = 0;
+
     //intersections
     public Intersection startI;
     public Intersection endI;
@@ -10,13 +13,14 @@ public class Ride {
 
     public int bonus;
 
-    public Ride(Intersection startI, Intersection endI, int startT, int endT, int bonus)
+    public Ride(Intersection startI, Intersection endI, int startT, int endT, int bonus, int id)
     {
         this.startI = startI;
         this.endI   = endI;
         this.startT = startT;
         this.endT   = endT;
         this.bonus  = bonus;
+        this.id = id;
     }
 
     public double getQuality(Car car)
